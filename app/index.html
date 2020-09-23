@@ -17,13 +17,12 @@
   </head>
   <body>
     <main id="main" class="main">
-
       <header id="header" class="header">
         <div class="container">
           <nav id="navigation" class="navigation">
             <ul class="navigation__list menu">
               <li class="menu__item active">
-                <a class="menu__link" href="#hero">Apresentação</a>
+                <a class="menu__link" href="#presentation">Apresentação</a>
               </li>
               <li class="menu__item">
                 <a class="menu__link" href="#skills">Habilidades</a>
@@ -35,33 +34,176 @@
                 <a class="menu__link" href="#contact">Contato</a>
               </li>
             </ul>
-            <a href="#" id="brand-link">
-              <img src="https://loremflickr.com/480/480/joao+pessoa,paraiba" alt="">
+            <a href="#" id="brand-link" class="brand-link">
+              <div class="ball ball__one"></div>
+              <div class="ball ball__two"></div>
+              <div class="ball ball__three"></div>
+              <div class="video-wrap">
+                <video src="images/me.mp4" loop muted autoplay></video>
+              </div>
             </a>
           </nav>
         </div>
       </header>
 
       <section id="content" class="content">
-        <section id="hero" class="hero">
+        <section id="presentation" class="content__section presentation">
           <div class="container">
-            <div class="hero__text">
-              <h4 class="hero__text__line">Me chamo <span class="name">Phellipe Lins</span>.</h4>
-              <h4 class="hero__text__line">Criador de soluções para web.</h4>
+            <div class="presentation__text">
+              <h4 class="presentation__text__line">
+                <span>Me chamo <span class="name">Phellipe Lins</span>.</span>
+              </h4>
+              <h4 class="presentation__text__line">
+                <span><span class="capacity">Criador</span> de soluções</span>
+              </h4>
+              <h4 class="presentation__text__line">
+                <span>Para <span class="capacity">web</span>.</span>
+              </h4>
             </div>
           </div>
         </section>
+        <section id="skills" class="content__section skills">
+          <h1 class="content__section__title">Habilidades <span class="separator">~ %</span></h1>
+
+          <div class="container">
+            <ul class="skills__list">
+              <li class="skill">
+                <span class="skill__name">animations/gsap <span class="separator">%</span></span>
+                <div class="skill__capacity">
+                  <span class="nivel nivel-1"></span>
+                  <span class="nivel nivel-2"></span>
+                  <span class="nivel nivel-3"></span>
+                  <span class="nivel nivel-4"></span>
+                  <span class="nivel nivel-5"></span>
+                </div>
+              </li>
+              <li class="skill">
+                <span class="skill__name">css/animations <span class="separator">%</span></span>
+                <div class="skill__capacity">
+                  <span class="nivel nivel-1"></span>
+                  <span class="nivel nivel-2"></span>
+                  <span class="nivel nivel-3"></span>
+                  <span class="nivel nivel-4"></span>
+                  <span class="nivel nivel-5"></span>
+                </div>
+              </li>
+              <li class="skill">
+                <span class="skill__name">javascript/angular <span class="separator">%</span></span>
+                <div class="skill__capacity">
+                  <span class="nivel nivel-1"></span>
+                  <span class="nivel nivel-2"></span>
+                  <span class="nivel nivel-3"></span>
+                  <span class="nivel nivel-4"></span>
+                  <span class="nivel nivel-5"></span>
+                  <span class="nivel nivel-6"></span>
+                  <span class="nivel nivel-7"></span>
+                </div>
+              </li>
+              <li class="skill">
+                <span class="skill__name">javascript/ionic <span class="separator">%</span></span>
+                <div class="skill__capacity">
+                  <span class="nivel nivel-1"></span>
+                  <span class="nivel nivel-2"></span>
+                  <span class="nivel nivel-3"></span>
+                  <span class="nivel nivel-4"></span>
+                  <span class="nivel nivel-5"></span>
+                  <span class="nivel nivel-6"></span>
+                  <span class="nivel nivel-7"></span>
+                  <span class="nivel nivel-8"></span>
+                </div>
+              </li>
+              <li class="skill">
+                <span class="skill__name">javascript/vuejs <span class="separator">%</span></span>
+                <div class="skill__capacity">
+                  <span class="nivel nivel-1"></span>
+                  <span class="nivel nivel-2"></span>
+                  <span class="nivel nivel-3"></span>
+                  <span class="nivel nivel-4"></span>
+                  <span class="nivel nivel-5"></span>
+                  <span class="nivel nivel-6"></span>
+                  <span class="nivel nivel-7"></span>
+                </div>
+              </li>
+              <li class="skill">
+                <span class="skill__name">javascript/unit-test <span class="separator">%</span></span>
+                <div class="skill__capacity">
+                  <span class="nivel nivel-1"></span>
+                  <span class="nivel nivel-2"></span>
+                  <span class="nivel nivel-3"></span>
+                </div>
+              </li>
+              <li class="skill">
+                <span class="skill__name">php/wordpress <span class="separator">%</span></span>
+                <div class="skill__capacity">
+                  <span class="nivel nivel-1"></span>
+                  <span class="nivel nivel-2"></span>
+                  <span class="nivel nivel-3"></span>
+                  <span class="nivel nivel-4"></span>
+                  <span class="nivel nivel-5"></span>
+                  <span class="nivel nivel-6"></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section id="portfolio" class="content__section portfolio">
+          <h1 class="content__section__title">Portfolio <span class="separator">~ %</span></h1>
+
+          <div class="container">
+            <ul class="portfolio__list">
+              <li class="project" onclick="showProject()">
+                <div class="project__img" data-index="3"></div>
+                <div class="project__img" data-index="2"></div>
+                <div class="project__img" data-index="1"></div>
+              </li>
+              <li class="project" onclick="showProject()">
+                <div class="project__img" data-index="3"></div>
+                <div class="project__img" data-index="2"></div>
+                <div class="project__img" data-index="1"></div>
+              </li>
+              <li class="project" onclick="showProject()">
+                <div class="project__img" data-index="3"></div>
+                <div class="project__img" data-index="2"></div>
+                <div class="project__img" data-index="1"></div>
+              </li>
+              <li class="project" onclick="showProject()">
+                <div class="project__img" data-index="3"></div>
+                <div class="project__img" data-index="2"></div>
+                <div class="project__img" data-index="1"></div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section id="contact" class="content__section contact">
+          <h1 class="content__section__title">Contato <span class="separator">~ %</span></h1>
+
+          <div class="container">
+            <a href="tel:83998043633" class="contact__link contact__link--phone">
+              <span>Você pode me encontrar em</span>
+              <span>João Pessoa, Paraíba</span>
+            </a>
+          </div>
+          <div class="gmaps">
+            <div id="gmaps"></div>
+            <div class="gmaps__bg gmaps__bg-one"></div>
+            <div class="gmaps__bg gmaps__bg-two"></div>
+            <div class="gmaps__bg gmaps__bg-three"></div>
+          </div>
+          <div class="container">
+            <a href="mailto:phellipelins@gmail.com" class="contact__link contact__link--email">
+              <span>Ou mandar um email para</span>
+              <span><span class="email">phellipelins</span><span class="host">@gmail.com</span></span>
+            </a>
+          </div>
+        </section>
       </section>
-
-      <footer id="footer" class="footer">
-        
-      </footer>
-
     </main>
 
     <!-- build:js scripts/vendor.js -->
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/node_modules/animejs/lib/anime.min.js"></script>
+    <script type="text/javascript" src="/node_modules/gsap/dist/ScrollTrigger.min.js"></script>
+    <script type="text/javascript" src="/node_modules/gsap/dist/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript" src="/node_modules/gsap/dist/gsap.min.js"></script>
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
