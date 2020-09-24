@@ -10,11 +10,18 @@ timeline
   .to('.presentation__text__line > span',
     { y: '0%', duration: 1.5, delay: 0, ease: 'expo.out', stagger: 0.5 }
   )
-timeline
-  .to('.menu, #brand-link',
+  .to('#brand-link',
     { opacity: 1, duration: 1, delay: 0, ease: 'power1.in' },
     '-=1'
   )
+
+if ($(window).width() >= 1080) {
+  timeline
+    .to('.menu',
+      { opacity: 1, duration: 1, delay: 0, ease: 'power1.in' },
+      '-=1'
+    )
+}
 
 // BRAND ANIMATION ****
 
@@ -29,10 +36,47 @@ $('.menu a').on('click', (event) => {
   const anchor = event.target.attributes.href.value;
 
   event.preventDefault();
-
   gsap.to(window, { scrollTo: anchor, duration: 1 });
 })
 
+
+// OPEN MENU ****
+
+if ($(window).width() <= 1080) {
+  const menuOpenTimeline = gsap.timeline({ reversed: true });
+  const menuButton = $('.navigation__button');
+  const menuButtonBarOne = menuButton.children('.bar:nth-child(1)');
+  const menuButtonBarTwo = menuButton.children('.bar:nth-child(2)');
+  const menuButtonBarThree = menuButton.children('.bar:nth-child(3)');
+  const menuContent = $('.menu');
+  const header = $('#header');
+
+  const brandVideoWrap = $('.video-wrap');
+  const brandVideo = $('.video-wrap video');
+  const brandLink = $('.brand-link');
+
+  menuOpenTimeline
+    .fromTo(menuContent, { y: '-115%', opacity: 0 }, { y: '25%', opacity: 1, duration: 0.5 })
+    .fromTo(header, { backgroundColor: 'rgba(0, 0, 0, 0)' }, { backgroundColor: 'rgba(0, 0, 0, 0.4)', duration: 0.5 }, '-=0.2')
+    .to(menuButton, { y: '-15px', duration: 0.3 }, '-=0.2')
+    .to(menuButtonBarThree, { opacity: 0, duration: 0.3 }, '-=0.3')
+    .to(menuButtonBarTwo, { rotate: '-45deg', x: -6.5, duration: 0.3 }, '-=0.3')
+    .to(menuButtonBarOne, { rotate: '45deg', x: 6.5, duration: 0.3 }, '-=0.3')
+    .to(brandLink, { width: 120, height: 120, duration: 0.5 }, '-=0.8')
+    .to(brandVideoWrap, { width: 120, height: 120, duration: 0.5 }, '-=0.8')
+    .to(brandVideo, { width: 120, y: -45, duration: 0.5 }, '-=0.8')
+    .to(brandBall, { width: 120, height: 120, duration: 0.5 }, '-=0.8')
+
+  menuButton.on('click', (event) => {
+    event.preventDefault();
+    menuOpenTimeline.reversed() ? menuOpenTimeline.play() : menuOpenTimeline.reverse();
+  })
+
+  $('.menu__link').on('click', (event) => {
+    event.preventDefault();
+    menuOpenTimeline.reversed() ? menuOpenTimeline.play() : menuOpenTimeline.reverse();
+  })
+}
 
 // MENU ANIMATIONS ****
 
@@ -100,7 +144,7 @@ portfolioTimeline
 
 // CONTACT ANIMATIONS ****
 
-const contactTimeline = gsap.timeline({ scrollTrigger: '#gmaps' });
+const contactTimeline = gsap.timeline({ scrollTrigger: '#gmaps', delay: 0.5 });
 const gmaps = $('#gmaps');
 const bgOne = $('.gmaps__bg-one');
 const bgTwo = $('.gmaps__bg-two');
