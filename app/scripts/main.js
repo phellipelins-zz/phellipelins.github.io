@@ -57,7 +57,7 @@ if ($(window).width() <= 1080) {
 
   menuOpenTimeline
     .fromTo(menuContent, { y: '-115%', opacity: 0 }, { y: '25%', opacity: 1, duration: 0.5 })
-    .fromTo(header, { backgroundColor: 'rgba(0, 0, 0, 0)' }, { backgroundColor: 'rgba(0, 0, 0, 0.4)', duration: 0.5 }, '-=0.2')
+    .fromTo(header, { backgroundColor: 'rgba(0, 0, 0, 0)' }, { backgroundColor: 'rgba(0, 0, 0, 0.8)', duration: 0.5 }, '-=0.2')
     .to(menuButton, { y: '-15px', duration: 0.3 }, '-=0.2')
     .to(menuButtonBarThree, { opacity: 0, duration: 0.3 }, '-=0.3')
     .to(menuButtonBarTwo, { rotate: '-45deg', x: -6.5, duration: 0.3 }, '-=0.3')
@@ -127,20 +127,75 @@ skillsCapacity.each((index, skill) => {
 
 // PORTFOILIO ANIMATIONS ****
 
-const portfolioTimeline = gsap.timeline({ scrollTrigger: { trigger: '#portfolio', start: '-=200' } })
-const animationConfig = {
+const projectOne = $('.project--one')
+const projectOneAnimation = gsap.to(projectOne.children('.project__img'), {
+  scrollTrigger: projectOne.get(0),
+  y: (index, target) => { return target.dataset.index * -15 },
+  x: (index, target) => { return target.dataset.index * -15 },
+  boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
+  duration: 0.5,
+  delay: 0.5,
+  ease: 'power1.out',
+})
+const projectTwo = $('.project--two')
+const projectTwoAnimation = gsap.to(projectTwo.children('.project__img'), {
+  scrollTrigger: projectTwo.get(0),
   y: (index, target) => { return target.dataset.index * -15 },
   x: (index, target) => { return target.dataset.index * 15 },
   boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
-  duration: 1,
+  duration: 0.5,
+  delay: 0.5,
   ease: 'power1.out',
-}
+})
+const projectThree = $('.project--three')
+const projectThreeAnimation = gsap.to(projectThree.children('.project__img'), {
+  scrollTrigger: projectThree.get(0),
+  y: (index, target) => { return target.dataset.index * 15 },
+  x: (index, target) => { return target.dataset.index * -15 },
+  boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
+  duration: 0.5,
+  delay: 0.5,
+  ease: 'power1.out',
+})
+const projectFour = $('.project--four')
+const projectFourAnimation = gsap.to(projectFour.children('.project__img'), {
+  scrollTrigger: projectFour.get(0),
+  y: (index, target) => { return target.dataset.index * 15 },
+  x: (index, target) => { return target.dataset.index * 15 },
+  boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
+  duration: 0.5,
+  delay: 0.5,
+  ease: 'power1.out',
+})
 
-portfolioTimeline
-  .to($($('.project').get(0)).children('.project__img'), animationConfig)
-  .to($($('.project').get(1)).children('.project__img'), animationConfig, '-=0.8')
-  .to($($('.project').get(2)).children('.project__img'), animationConfig, '-=0.9')
-  .to($($('.project').get(3)).children('.project__img'), animationConfig, '-=1.1');
+projectOne.on('mouseenter', (event) => {
+  projectOneAnimation.reverse()
+})
+projectOne.on('mouseleave', (event) => {
+  projectOneAnimation.play()
+})
+
+projectTwo.on('mouseenter', (event) => {
+  projectTwoAnimation.reverse()
+})
+projectTwo.on('mouseleave', (event) => {
+  projectTwoAnimation.play()
+})
+
+projectThree.on('mouseenter', (event) => {
+  projectThreeAnimation.reverse()
+})
+projectThree.on('mouseleave', (event) => {
+  projectThreeAnimation.play()
+})
+
+projectFour.on('mouseenter', (event) => {
+  projectFourAnimation.reverse()
+})
+projectFour.on('mouseleave', (event) => {
+  projectFourAnimation.play()
+})
+
 
 // CONTACT ANIMATIONS ****
 
