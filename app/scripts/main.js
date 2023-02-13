@@ -1,222 +1,325 @@
-gsap.registerPlugin(ScrollTrigger)
-gsap.registerPlugin(ScrollToPlugin)
+(($) => {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollToPlugin);
+  gsap.registerPlugin(TextPlugin);
+  gsap.registerPlugin(CustomEase);
 
+  const projects = [];
 
-// PRESENTATION OPENING ****
+  const initViewportDimentions = () => {
+    let vh = $(window).innerHeight() * 0.01;
+    let vw = $(window).innerWidth() * 0.01;
+    
+    document.documentElement.style.setProperty('--vh', ''.concat(vh, 'px'));
+    document.documentElement.style.setProperty('--vw', ''.concat(vw, 'px'));
 
-const timeline = gsap.timeline()
+    $(window).on('scroll load resize', () => {
+      vh = $(window).innerHeight() * 0.01;
+      vw = $(window).innerWidth() * 0.01;
 
-timeline
-  .to('.presentation__text__line > span',
-    { y: '0%', duration: 1.5, delay: 0, ease: 'expo.out', stagger: 0.5 }
-  )
-  .to('#brand-link',
-    { opacity: 1, duration: 1, delay: 0, ease: 'power1.in' },
-    '-=1'
-  )
+      document.documentElement.style.setProperty('--vh', ''.concat(vh, 'px'));
+      document.documentElement.style.setProperty('--vw', ''.concat(vw, 'px'));
+    });
+  };
 
-if ($(window).width() >= 1080) {
-  timeline
-    .to('.menu',
-      { opacity: 1, duration: 1, delay: 0, ease: 'power1.in' },
-      '-=1'
-    )
-}
+  const stickyHeader = () => {
+    const header = $('#header');
+    let scrollPosition = 114;
 
-// BRAND ANIMATION ****
+    $(window).on('scroll mousewhell', () => {
+      const currentScrollPosition = $(window).scrollTop();
 
-const brandBall = $('.ball')
+      if (currentScrollPosition > scrollPosition) {
+        header.css('top', '-114px');
+      } else {
+        header.css('top', '0px');
+      }
 
-gsap.to(brandBall, { rotate: 360, duration: 3, delay: 2, repeat: -1 })
+      scrollPosition = currentScrollPosition;
+    });
+  };
 
+  const initTypeWriterEffect = () => {
+    const windowWidth = $(window).innerWidth();
+    const titleElement = $('.hero h1');
+    const subtitleElement = $('.hero h2');
+    const sectionsTitles = $('#skills h3, #projects h3');
+    let heroTitle = 'Me chamo Phellipe Lins';
+    let heroSubtitle = 'Creative frontend developer';
 
-// NAVIGATION LINK ANIMATIONS ****
+    if (windowWidth <= 920) {
+      heroTitle = 'Phellipe Lins';
+      heroSubtitle = 'Frontend developer';
+    }
 
-$('.menu a').on('click', (event) => {
-  const anchor = event.target.attributes.href.value;
+    gsap.to(titleElement, {
+      text: { value: heroTitle },
+      duration: 2,
+      ease: 'none'
+    });
 
-  event.preventDefault();
-  gsap.to(window, { scrollTo: anchor, duration: 1 });
-})
+    gsap.to(subtitleElement, {
+      text: { value: heroSubtitle },
+      duration: 2,
+      delay: 2,
+      ease: 'none'
+    });
 
+    sectionsTitles.each((index, element) => {
+      gsap.to(element, {
+        text: {
+          value: $(element).attr('data-text'),
+        },
+        scrollTrigger: {
+          trigger: element,
+          start: 'top bottom'
+        },
+        duration: 1,
+        ease: 'none'
+      })
+    });
+  };
 
-// OPEN MENU ****
+  const scrollTo = () => {
+    const link = $('[scroll-to]');
 
-if ($(window).width() <= 1080) {
-  const menuOpenTimeline = gsap.timeline({ reversed: true });
-  const menuButton = $('.navigation__button');
-  const menuButtonBarOne = menuButton.children('.bar:nth-child(1)');
-  const menuButtonBarTwo = menuButton.children('.bar:nth-child(2)');
-  const menuButtonBarThree = menuButton.children('.bar:nth-child(3)');
-  const menuContent = $('.menu');
-  const header = $('#header');
+    link.on('click', (event) => {
+      event.preventDefault();
 
-  const brandVideoWrap = $('.video-wrap');
-  const brandVideo = $('.video-wrap video');
-  const brandLink = $('.brand-link');
+      const target = $(event.target).attr('scroll-to');
+      const scrollHeight = $(target).offset().top;
 
-  menuOpenTimeline
-    .fromTo(menuContent, { y: '-115%', opacity: 0 }, { y: '25%', opacity: 1, duration: 0.5 })
-    .fromTo(header, { backgroundColor: 'rgba(0, 0, 0, 0)' }, { backgroundColor: 'rgba(0, 0, 0, 0.8)', duration: 0.5 }, '-=0.2')
-    .to(menuButton, { y: '-15px', duration: 0.3 }, '-=0.2')
-    .to(menuButtonBarThree, { opacity: 0, duration: 0.3 }, '-=0.3')
-    .to(menuButtonBarTwo, { rotate: '-45deg', x: -6.5, duration: 0.3 }, '-=0.3')
-    .to(menuButtonBarOne, { rotate: '45deg', x: 6.5, duration: 0.3 }, '-=0.3')
-    .to(brandLink, { width: 120, height: 120, duration: 0.5 }, '-=0.8')
-    .to(brandVideoWrap, { width: 120, height: 120, duration: 0.5 }, '-=0.8')
-    .to(brandVideo, { width: 120, y: -45, duration: 0.5 }, '-=0.8')
-    .to(brandBall, { width: 120, height: 120, duration: 0.5 }, '-=0.8')
-
-  menuButton.on('click', (event) => {
-    event.preventDefault();
-    menuOpenTimeline.reversed() ? menuOpenTimeline.play() : menuOpenTimeline.reverse();
-  })
-
-  $('.menu__link').on('click', (event) => {
-    event.preventDefault();
-    menuOpenTimeline.reversed() ? menuOpenTimeline.play() : menuOpenTimeline.reverse();
-  })
-}
-
-// MENU ANIMATIONS ****
-
-$(window).on('scroll', () => {
-  const presentationAnchor = $('#presentation').offset().top;
-  const skillsAnchor = $('#skills').offset().top;
-  const portfolioAnchor = $('#portfolio').offset().top;
-  const contactAnchor = $('#contact').offset().top;
-
-
-  // MENU ACTIVATING ****
-
-  if ($(window).scrollTop() >= presentationAnchor) {
-    $('.menu__item.active').removeClass('active');
-    $('a[href="#presentation"]').parent().addClass('active');
+      gsap.to(window, { scrollTo: { y: scrollHeight }, duration: 0.8 });
+    });
   }
-  if ($(window).scrollTop() >= skillsAnchor) {
-    $('.menu__item.active').removeClass('active');
-    $('a[href="#skills"]').parent().addClass('active');
-  }
-  if ($(window).scrollTop() >= portfolioAnchor) {
-    $('.menu__item.active').removeClass('active');
-    $('a[href="#portfolio"]').parent().addClass('active');
-  }
-  if ($(window).scrollTop() >= contactAnchor) {
-    $('.menu__item.active').removeClass('active');
-    $('a[href="#contact"]').parent().addClass('active');
-  }
-})
 
+  const fillAbilities = () => {
+    const abilities = $('.skill');
+    
+    abilities.each((index, element) => {
+      const bar = $(element).find('.percentage');
+      const levelCircle = $(element).find('.levels .level');
+      const percentage = $(element).attr('data-experience');
+      const percentageInt = Number(percentage.replace('%', ''));
+      const level = Math.ceil(percentageInt * 0.05);
 
-// SKILLS ANIMATIONS ****
+      // mobile
+      gsap.to(bar, {
+        width: percentage,
+        duration: 1,
+        ease: SteppedEase.config(10),
+        scrollTrigger: {
+          trigger: bar.get(0),
+          start: 'bottom bottom',
+        },
+      });
 
-const skillsTimeline = gsap.timeline({ scrollTrigger: { trigger: '#skills', start: '+=50'} });
-const skillsCapacity = $('.skill__capacity');
-let capacities = [];
+      // desktop
+      ScrollTrigger.create({
+        trigger: element,
+        onEnter: () => {
+          const levelToBeFilled = levelCircle.slice(0, level);
 
-skillsCapacity.each((index, skill) => {
-  capacities = $(skill).children('.nivel')
+          gsap.to(levelToBeFilled, {
+            backgroundColor: 'black',
+            stagger: 0.2,
+            ease: SteppedEase.config(1),
+          });
+        },
+      });
+    });    
+  };
 
-  skillsTimeline.fromTo(capacities,
-    { opacity: 0 },
-    { opacity: 1, ease: 'steps (5)', duration: 0.5, delay: 0.25, stagger: '0.1' },
-    '-=1.35'
-  )
-})
+  const initProjectSlider = () => {
+    const slider = $('.gallery');
 
+    slider.slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      infinite: false,
+      arrows: false,
+      dots: false,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      speed: 1000,
+      ease: 'ease-in',
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  };
 
-// PORTFOILIO ANIMATIONS ****
+  const initProjectGrid = (projects) => {
+    const grid = $('.projects .list');
+    const filterButtons = $('.projects .filter');
+    const cardTemplate = 
+      `<div class="project-card {{category}}" role="listitem">
+        <div class="image" role="img" alt="{{name}}" style="background-image: url({{cover}});"></div>
+        <div class="actions">
+          <a href="{{url}}" target="_blank">ir para o site</a>
+          <button data-slug="{{id}}">ver projeto</button>
+        </div>
+      </div>`;
 
-const projectOne = $('.project--one')
-const projectOneAnimation = gsap.to(projectOne.children('.project__img'), {
-  scrollTrigger: projectOne.get(0),
-  y: (index, target) => { return target.dataset.index * -15 },
-  x: (index, target) => { return target.dataset.index * -15 },
-  boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
-  duration: 0.5,
-  delay: 0.5,
-  ease: 'power1.out',
-})
-const projectTwo = $('.project--two')
-const projectTwoAnimation = gsap.to(projectTwo.children('.project__img'), {
-  scrollTrigger: projectTwo.get(0),
-  y: (index, target) => { return target.dataset.index * -15 },
-  x: (index, target) => { return target.dataset.index * 15 },
-  boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
-  duration: 0.5,
-  delay: 0.5,
-  ease: 'power1.out',
-})
-const projectThree = $('.project--three')
-const projectThreeAnimation = gsap.to(projectThree.children('.project__img'), {
-  scrollTrigger: projectThree.get(0),
-  y: (index, target) => { return target.dataset.index * 15 },
-  x: (index, target) => { return target.dataset.index * -15 },
-  boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
-  duration: 0.5,
-  delay: 0.5,
-  ease: 'power1.out',
-})
-const projectFour = $('.project--four')
-const projectFourAnimation = gsap.to(projectFour.children('.project__img'), {
-  scrollTrigger: projectFour.get(0),
-  y: (index, target) => { return target.dataset.index * 15 },
-  x: (index, target) => { return target.dataset.index * 15 },
-  boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.25)',
-  duration: 0.5,
-  delay: 0.5,
-  ease: 'power1.out',
-})
+    projects.forEach(project => {
+      const card = cardTemplate
+        .replace('{{id}}', project.id)
+        .replace('{{category}}', project.category)
+        .replace('{{name}}', project.name)
+        .replace('{{url}}', project.url)
+        .replace('{{cover}}', project.cover)
 
-projectOne.on('mouseenter', (event) => {
-  projectOneAnimation.reverse()
-})
-projectOne.on('mouseleave', (event) => {
-  projectOneAnimation.play()
-})
+      grid.append(card);
+    });
 
-projectTwo.on('mouseenter', (event) => {
-  projectTwoAnimation.reverse()
-})
-projectTwo.on('mouseleave', (event) => {
-  projectTwoAnimation.play()
-})
+    grid.isotope({
+      columnWidth: '.project-card',
+      itemSelector: '.project-card',
+      layoutMode: 'fitRows',
+      percentPosition: true,
+    });
 
-projectThree.on('mouseenter', (event) => {
-  projectThreeAnimation.reverse()
-})
-projectThree.on('mouseleave', (event) => {
-  projectThreeAnimation.play()
-})
+    filterButtons.on('click', (event) => {
+      event.preventDefault();
 
-projectFour.on('mouseenter', (event) => {
-  projectFourAnimation.reverse()
-})
-projectFour.on('mouseleave', (event) => {
-  projectFourAnimation.play()
-})
+      const button = $(event.target);
+      const term = button.attr('data-filter');
 
+      filterButtons.removeClass('active');
+      button.addClass('active');
+      grid.isotope({ filter: term });
+    })
+  };
+  
+  const initProjectsEffect = () => {
+    const projects = $('#projects .project-card');
 
-// CONTACT ANIMATIONS ****
+    projects.each((index, element) => {
+      gsap.to(element, {
+        opacity: 1,
+        duration: 1.3,
+        ease: CustomEase.create('custom', 'M0,0,C0,0,0.047,0.237,0.05,0.25,0.052,0.237,0.097,0.01,0.1,0,0.102,0.015,0.148,0.337,0.15,0.35,0.151,0.337,0.198,0.011,0.2,0,0.201,0.014,0.248,0.435,0.25,0.45,0.251,0.438,0.298,0.111,0.3,0.1,0.301,0.114,0.348,0.535,0.35,0.55,0.351,0.538,0.398,0.211,0.4,0.2,0.401,0.214,0.448,0.635,0.45,0.65,0.451,0.638,0.498,0.311,0.5,0.3,0.501,0.314,0.548,0.735,0.55,0.75,0.551,0.738,0.598,0.411,0.6,0.4,0.601,0.414,0.648,0.835,0.65,0.85,0.651,0.838,0.698,0.511,0.7,0.5,0.701,0.514,0.748,0.935,0.75,0.95,0.751,0.938,0.798,0.611,0.8,0.6,0.801,0.613,0.848,0.985,0.85,1,0.851,0.988,0.897,0.712,0.9,0.7,0.902,0.712,0.938,0.933,0.95,1,0.961,1,1,1,1,1'),
+        delay: 1,
+        scrollTrigger: {
+          trigger: element,
+          start: 'top bottom',
+        },
+        onComplete: () => $(element).addClass('visible'),
+      });
+    });
+  };
 
-const contactTimeline = gsap.timeline({ scrollTrigger: '#gmaps', delay: 0.5 });
-const gmaps = $('#gmaps');
-const bgOne = $('.gmaps__bg-one');
-const bgTwo = $('.gmaps__bg-two');
-const bgThree = $('.gmaps__bg-three');
-const findMeText = $('.contact__link--phone');
-const sendMeText = $('.contact__link--email');
+  const fetchProjects = () => {
+    fetch('data/projects.json')
+      .then(response => response.json())
+      .then((response) => {
+        projects.push(...response.projects);
+        return response.projects;
+      })
+      .then(projects => initProjectGrid(projects))
+      .then(() => initProjectsEffect());
+  };
 
+  const openProject = () => {
+    const page = $('body');
+    const header = $('#header');
+    const section = $('.projects');
+    const button = '.project-card button';
+    const scrollHeight = section.offset().top;
+    const titleElement = $('.project .topbar h4');
+    const textElement = $('.project .text');
+    const galleryElement = $('.gallery');
 
-contactTimeline
-  .fromTo(bgOne, { y: '85%' }, { y: '0%', ease: 'expo.out', duration: 0.5 })
-  .fromTo(bgTwo, { y: '90%' }, { y: '0%', ease: 'expo.out', duration: 0.7 }, '-=0.4')
-  .fromTo(bgThree, { y: '100%' }, { y: '0%', ease: 'expo.out', duration: 0.9 }, '-=0.6')
-  .to(gmaps, { opacity: 1, duration: 0.3 }, '-=0.3')
-  .fromTo(findMeText, { x: '10%', opacity: 0 }, { x: '0%', opacity: 1 })
-  .fromTo(sendMeText, { x: '10%', opacity: 0 }, { x: '0%', opacity: 1 }, '-=0.3')
+    section.on('click', button, (event) => {
+      event.preventDefault();
 
+      const slug = $(event.target).attr('data-slug');
+      const { id, name, description, images } = projects.filter(({ id }) => id === Number(slug))[0];
+      const slideTemplate = `
+        <div class="slide">
+          <div class="image" role="img" alt="" style="background-image: url({{url}})"></div>
+          <span class="caption">{{caption}}</span>
+        </div>`;
 
-function showProject() {
-  window.alert('open project modal');
-}
+      if (id) {
+        titleElement.text(name);
+        textElement.text(description);
+
+        images.forEach(({ url, caption }) => {
+          const slide = slideTemplate
+            .replace('{{url}}', url)
+            .replace('{{caption}}', caption);
+
+          galleryElement.slick('slickAdd', slide);
+        });
+
+        galleryElement.slick('slickPlay');
+        
+        gsap.to(window, { scrollTo: { y: scrollHeight }, duration: 0.3, onComplete: () => {
+          page.css({ height: $(window).innerHeight(), overflow: 'hidden' });
+          gsap.to(section, { scrollTo: { x: $(window).innerWidth() }, duration: 0.5, onComplete: () => {
+            header.css('top', '-114px');  
+          }});
+        }});
+      }
+      
+    });
+  };
+
+  const closeProject = () => {
+    const button = '.project .topbar button';
+    const page = $('body');
+    const section = $('.projects');
+    const gallery = $('.gallery');
+
+    section.on('click', button, () => {
+      gallery.slick('slickRemove', null, null, true);
+      gsap.to(section, { scrollTo: { x: 0 }, duration: 0.5, onComplete: () => {
+        page.css({ height: 'auto', overflow: 'auto' });
+      }});
+    });
+  };
+
+  const getCurrentCopyrightYear = () => {
+    const year = new Date().getFullYear();
+    const target = $('.footer .copyright .year');
+
+    target.text(year);
+  };
+
+  const init = () => {
+    initViewportDimentions();
+    stickyHeader();
+    initTypeWriterEffect();
+    scrollTo();
+    fillAbilities();
+    fetchProjects();
+    openProject();
+    closeProject();
+    initProjectSlider();
+    getCurrentCopyrightYear();
+  };
+
+  $(window).on('load', () => init());
+
+  $(window).on('resize', () => {
+    initTypeWriterEffect();
+  });
+})(jQuery);

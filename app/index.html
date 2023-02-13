@@ -5,257 +5,213 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Phellipe Lins | Portfólio</title>
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" href="favicon.png">
+    <link rel="favicon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <!-- build:js scripts/modernizr.js -->
-    <script src="scripts/modernizr.js"></script>
-    <!-- endbuild -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" referrerpolicy="no-referrer"></script>
   </head>
   <body>
-    <main id="main" class="main">
-      <header id="header" class="header">
-        <div class="container">
-          <nav id="navigation" class="navigation">
-            <a href="#" class="navigation__button">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-            </a>
-            <ul class="navigation__list menu">
-              <li class="menu__item active">
-                <a class="menu__link" href="#presentation">Apresentação</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#skills">Habilidades</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#portfolio">Portfólio</a>
-              </li>
-              <li class="menu__item">
-                <a class="menu__link" href="#contact">Contato</a>
-              </li>
-            </ul>
-            <a href="#" id="brand-link" class="brand-link">
-              <div class="ball ball__one"></div>
-              <div class="ball ball__two"></div>
-              <div class="ball ball__three"></div>
-              <div class="video-wrap">
-                <video src="images/me.mp4" loop muted autoplay></video>
-              </div>
-            </a>
-          </nav>
-        </div>
-      </header>
+    <header id="header" class="header">
+      <div class="container">
+        <span class="brand">Phellipe<br/>Lins</span>
+        <nav class="menu">
+          <ul class="menu__list">
+            <li>
+              <a href="#" scroll-to="#projects">Projetos</a>
+            </li>
+            <li>
+              <a href="#" scroll-to="#footer">Contato</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-      <section id="content" class="content">
-        <section id="presentation" class="content__section presentation">
-          <div class="container">
-            <div class="presentation__text">
-              <h4 class="presentation__text__line">
-                <span>Me chamo <span class="name">Phellipe Lins</span>.</span>
-              </h4>
-              <h4 class="presentation__text__line">
-                <span><span class="capacity">Criador</span> de soluções</span>
-              </h4>
-              <h4 class="presentation__text__line">
-                <span>Para <span class="capacity">web</span>.</span>
-              </h4>
+    <main id="main" class="main">
+      <section id="hero" class="hero">
+        <div class="container">
+          <h1></h1>
+          <h2></h2>
+          <button scroll-to="#skills">Ver mais <i class="icon arrow-down"></i></button>
+        </div>
+      </section>
+
+      <section id="skills" class="skills">
+        <div class="container">
+          <h3 data-text="Habilidades"></h3>
+
+          <ul class="list">
+            <li class="skill" data-experience="70%">
+              <div class="percentage" role="presentation"></div>
+              <span class="order">2</span>
+              <span class="title">css3/animations</span>
+              <div class="levels" data-level="4">
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+              </div>
+            </li>
+            <li class="skill" data-experience="80%">
+              <div class="percentage" role="presentation"></div>
+              <span class="order">1</span>
+              <span class="title">html5/seo</span>
+              <div class="levels" data-level="4">
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+              </div>
+            </li>
+            <li class="skill" data-experience="90%">
+              <div class="percentage" role="presentation"></div>
+              <span class="order">3</span>
+              <span class="title">javascript/react-native</span>
+              <div class="levels">
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+              </div>
+            </li>
+            <li class="skill" data-experience="100%">
+              <div class="percentage" role="presentation"></div>
+              <span class="order">4</span>
+              <span class="title">gsap/animations</span>
+              <div class="levels">
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+              </div>
+            </li>
+            <li class="skill" data-experience="100%">
+              <div class="percentage" role="presentation"></div>
+              <span class="order">5</span>
+              <span class="title">javascript/react</span>
+              <div class="levels">
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+              </div>
+            </li>
+            <li class="skill" data-experience="100%">
+              <div class="percentage" role="presentation"></div>
+              <span class="order">6</span>
+              <span class="title">php/wordpress</span>
+              <div class="levels">
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+              </div>
+            </li>
+            <li class="skill" data-experience="100%">
+              <div class="percentage" role="presentation"></div>
+              <span class="order">7</span>
+              <span class="title">process/scrum</span>
+              <div class="levels">
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+                <span class="level"></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <div class="container">
+          <h3 data-text="Projetos"></h3>
+
+          <div class="filters">
+            <button class="filter active" data-filter="*">listar tudo</button>
+            <button class="filter" data-filter=".animations">animations</button>
+            <button class="filter" data-filter=".wordpress">wordpress</button>
+          </div>
+
+          <div class="list-wrapper">
+            <div class="list" role="list">
+              
             </div>
           </div>
-        </section>
-        <section id="skills" class="content__section skills">
-          <h1 class="content__section__title">Habilidades <span class="separator">~ %</span></h1>
+        </div>
 
+        <section class="project">
           <div class="container">
-            <ul class="skills__list">
-              <li class="skill">
-                <span class="skill__name">javascript/react <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                  <span class="nivel nivel-6"></span>
-                  <span class="nivel nivel-7"></span>
-                  <span class="nivel nivel-8"></span>
-                  <span class="nivel nivel-9"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">animations/gsap <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                  <span class="nivel nivel-6"></span>
-                  <span class="nivel nivel-7"></span>
-                  <span class="nivel nivel-8"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">php/wordpress <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                  <span class="nivel nivel-6"></span>
-                  <span class="nivel nivel-7"></span>
-                  <span class="nivel nivel-8"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">mobile/ionic <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                  <span class="nivel nivel-6"></span>
-                  <span class="nivel nivel-7"></span>
-                  <span class="nivel nivel-8"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">mobile/react-native <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                  <span class="nivel nivel-6"></span>
-                  <span class="nivel nivel-7"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">javascript/angular <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                  <span class="nivel nivel-6"></span>
-                  <span class="nivel nivel-7"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">javascript/vuejs <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                  <span class="nivel nivel-6"></span>
-                  <span class="nivel nivel-7"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">css/animations <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                  <span class="nivel nivel-4"></span>
-                  <span class="nivel nivel-5"></span>
-                </div>
-              </li>
-              <li class="skill">
-                <span class="skill__name">javascript/unit-test <span class="separator">%</span></span>
-                <div class="skill__capacity">
-                  <span class="nivel nivel-1"></span>
-                  <span class="nivel nivel-2"></span>
-                  <span class="nivel nivel-3"></span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section id="portfolio" class="content__section portfolio">
-          <h1 class="content__section__title">Portfolio <span class="separator">~ %</span></h1>
-
-          <div class="container">
-            <ul class="portfolio__list">
-              <li class="project project--one">
-                <div class="project__img" style="background-image: url(./images/wasser_one.png)" data-index="3"></div>
-                <div class="project__img" style="background-image: url(./images/wasser_two.png)" data-index="2"></div>
-                <div class="project__img" style="background-image: url(./images/wasser_three.png)" data-index="1"></div>
-                <div class="project__details">
-                  <span class="project__details__name">Wasser BR</span>
-                  <a href="https://wasserbr.com" target="_blank" class="project__details__link">Ir para o site</a>
-                </div>
-              </li>
-              <li class="project project--two">
-                <div class="project__img" style="background-image: url(./images/deissler_one.png)" data-index="3"></div>
-                <div class="project__img" style="background-image: url(./images/deissler_two.png)" data-index="2"></div>
-                <div class="project__img" style="background-image: url(./images/deissler_three.png)" data-index="1"></div>
-                <div class="project__details">
-                  <span class="project__details__name">Deissler Energia Solar</span>
-                  <a href="http://deissler.com.br" target="_blank" class="project__details__link">Ir para o site</a>
-                </div>
-              </li>
-              <li class="project project--three">
-                <div class="project__img" style="background-image: url(./images/manaira_one.png)" data-index="3"></div>
-                <div class="project__img" style="background-image: url(./images/manaira_two.png)" data-index="2"></div>
-                <div class="project__img" style="background-image: url(./images/manaira_three.png)" data-index="1"></div>
-                <div class="project__details">
-                  <span class="project__details__name">Manaíra Shopping</span>
-                  <a href="https://manairashopping.com" target="_blank" class="project__details__link">Ir para o site</a>
-                </div>
-              </li>
-              <li class="project project--four">
-                <div class="project__img" style="background-image: url(./images/nord_one.png)" data-index="3"></div>
-                <div class="project__img" style="background-image: url(./images/nord_two.png)" data-index="2"></div>
-                <div class="project__img" style="background-image: url(./images/nord_three.png)" data-index="1"></div>
-                <div class="project__details">
-                  <span class="project__details__name">Nord Hotéis</span>
-                  <a href="https://www.nordhoteis.com.br/" target="_blank" class="project__details__link">Ir para o site</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section id="contact" class="content__section contact">
-          <h1 class="content__section__title">Contato <span class="separator">~ %</span></h1>
-
-          <div class="container">
-            <a href="tel:83998043633" class="contact__link contact__link--phone">
-              <span>Você pode me encontrar em</span>
-              <span>João Pessoa, Paraíba</span>
-            </a>
-          </div>
-          <div class="gmaps">
-            <div id="gmaps"></div>
-            <div class="gmaps__bg gmaps__bg-one"></div>
-            <div class="gmaps__bg gmaps__bg-two"></div>
-            <div class="gmaps__bg gmaps__bg-three"></div>
-          </div>
-          <div class="container">
-            <a href="mailto:phellipelins@gmail.com" class="contact__link contact__link--email">
-              <span>Ou mandar um email para</span>
-              <span><span class="email">phellipelins</span><span class="host">@gmail.com</span></span>
-            </a>
+            <div class="topbar">
+              <button><i class="icon arrow-down"></i></button>
+              <h4></h4>
+            </div>
+            <p class="text"></p>
+            <div id="gallery" class="gallery"></div>
           </div>
         </section>
       </section>
     </main>
 
+    <footer id="footer" class="footer">
+      <div class="container">
+        <span class="copyright">
+          <span class="year">2030</span> &copy; Todos os direitos reservados.
+        </span>
+        <div class="contact">
+          <a href="tel:+5583998043633" target="_blank">
+            <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5 1.75C12.8315 1.75 13.1495 1.8817 13.3839 2.11612C13.6183 2.35054 13.75 2.66848 13.75 3V13C13.75 13.3315 13.6183 13.6495 13.3839 13.8839C13.1495 14.1183 12.8315 14.25 12.5 14.25H7.5C7.16848 14.25 6.85054 14.1183 6.61612 13.8839C6.3817 13.6495 6.25 13.3315 6.25 13V3C6.25 2.66848 6.3817 2.35054 6.61612 2.11612C6.85054 1.8817 7.16848 1.75 7.5 1.75H12.5ZM7.5 0.5C6.83696 0.5 6.20107 0.763392 5.73223 1.23223C5.26339 1.70107 5 2.33696 5 3V13C5 13.663 5.26339 14.2989 5.73223 14.7678C6.20107 15.2366 6.83696 15.5 7.5 15.5H12.5C13.163 15.5 13.7989 15.2366 14.2678 14.7678C14.7366 14.2989 15 13.663 15 13V3C15 2.33696 14.7366 1.70107 14.2678 1.23223C13.7989 0.763392 13.163 0.5 12.5 0.5H7.5Z" fill="#20EDC8"/>
+              <path d="M10 13C10.3315 13 10.6495 12.8683 10.8839 12.6338C11.1183 12.3994 11.25 12.0815 11.25 11.75C11.25 11.4184 11.1183 11.1005 10.8839 10.8661C10.6495 10.6317 10.3315 10.5 10 10.5C9.66849 10.5 9.35055 10.6317 9.11613 10.8661C8.88171 11.1005 8.75001 11.4184 8.75001 11.75C8.75001 12.0815 8.88171 12.3994 9.11613 12.6338C9.35055 12.8683 9.66849 13 10 13ZM1.99876 3.07246C2.07133 3.11086 2.13562 3.16317 2.18797 3.22643C2.24031 3.28968 2.27968 3.36262 2.30382 3.44109C2.32797 3.51956 2.33642 3.60202 2.32869 3.68376C2.32095 3.7655 2.29719 3.84491 2.25876 3.91746C1.59407 5.17546 1.24772 6.57715 1.25001 7.99996C1.25001 9.47496 1.61501 10.865 2.25876 12.0825C2.33634 12.229 2.35253 12.4003 2.30377 12.5588C2.25501 12.7173 2.14529 12.8499 1.99876 12.9275C1.85223 13.005 1.68088 13.0212 1.52241 12.9725C1.36394 12.9237 1.23134 12.814 1.15376 12.6675C0.39379 11.2292 -0.00233444 9.62666 1.03493e-05 7.99996C1.03493e-05 6.31621 0.41751 4.72621 1.15376 3.33246C1.19216 3.25989 1.24448 3.1956 1.30773 3.14325C1.37098 3.09091 1.44392 3.05154 1.52239 3.02739C1.60087 3.00325 1.68332 2.9948 1.76506 3.00253C1.8468 3.01027 1.92621 3.03403 1.99876 3.07246ZM18.0013 3.07246C18.0738 3.03403 18.1532 3.01027 18.235 3.00253C18.3167 2.9948 18.3992 3.00325 18.4776 3.02739C18.5561 3.05154 18.629 3.09091 18.6923 3.14325C18.7555 3.1956 18.8079 3.25989 18.8463 3.33246C19.6063 4.77071 20.0024 6.37325 20 7.99996C20.0024 9.62667 19.6063 11.2292 18.8463 12.6675C18.7687 12.814 18.6361 12.9237 18.4776 12.9725C18.3191 13.0212 18.1478 13.005 18.0013 12.9275C17.8547 12.8499 17.745 12.7173 17.6963 12.5588C17.6475 12.4003 17.6637 12.229 17.7413 12.0825C18.406 10.8245 18.7523 9.42276 18.75 7.99996C18.75 6.52496 18.385 5.13496 17.7413 3.91746C17.7028 3.84491 17.6791 3.7655 17.6713 3.68376C17.6636 3.60202 17.6721 3.51956 17.6962 3.44109C17.7203 3.36262 17.7597 3.28968 17.8121 3.22643C17.8644 3.16317 17.9287 3.11086 18.0013 3.07246ZM3.82126 4.91746C3.89778 4.9473 3.96768 4.99192 4.02694 5.04879C4.08621 5.10566 4.13368 5.17365 4.16665 5.24888C4.19962 5.3241 4.21744 5.40509 4.21909 5.48721C4.22074 5.56933 4.20618 5.65097 4.17626 5.72746C3.89368 6.45174 3.74911 7.2225 3.75001 7.99996C3.75001 8.80246 3.90001 9.56871 4.17501 10.2725C4.20989 10.3497 4.22869 10.4333 4.23028 10.518C4.23186 10.6027 4.21618 10.6869 4.18421 10.7654C4.15223 10.8439 4.10463 10.9151 4.04428 10.9746C3.98394 11.0341 3.91211 11.0808 3.83318 11.1117C3.75425 11.1426 3.66986 11.1571 3.58514 11.1543C3.50043 11.1516 3.41715 11.1316 3.34039 11.0957C3.26362 11.0598 3.19497 11.0086 3.1386 10.9453C3.08224 10.882 3.03934 10.8079 3.01251 10.7275C2.67309 9.8582 2.49927 8.93313 2.50001 7.99996C2.50001 7.03871 2.68126 6.11871 3.01251 5.27246C3.07278 5.11821 3.1918 4.99419 3.34344 4.92763C3.49507 4.86107 3.66693 4.85741 3.82126 4.91746ZM16.1788 4.91746C16.2553 4.88753 16.3369 4.87298 16.419 4.87463C16.5011 4.87628 16.5821 4.8941 16.6573 4.92707C16.7326 4.96004 16.8006 5.00751 16.8574 5.06678C16.9143 5.12604 16.9589 5.19593 16.9888 5.27246C17.3188 6.11871 17.5 7.03871 17.5 7.99996C17.5 8.96121 17.3188 9.88121 16.9875 10.7275C16.9216 10.8735 16.8021 10.9886 16.6537 11.0491C16.5053 11.1095 16.3393 11.1107 16.1901 11.0523C16.0409 10.9939 15.9198 10.8804 15.8518 10.7353C15.7839 10.5901 15.7743 10.4245 15.825 10.2725C16.1 9.56871 16.25 8.80246 16.25 7.99996C16.25 7.19746 16.1 6.43121 15.825 5.72746C15.7645 5.57314 15.7678 5.4011 15.8341 5.2492C15.9005 5.09729 16.0244 4.97796 16.1788 4.91746Z" fill="#20EDC8"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/+5583998043633" class="wa-desktop" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.0012 2.90756C16.0843 1.98216 14.9924 1.24849 13.7891 0.749318C12.5858 0.250144 11.2952 -0.00455534 9.9925 6.16632e-05C4.53375 6.16632e-05 0.085 4.44756 0.08 9.90756C0.08 11.6563 0.5375 13.3576 1.40125 14.8638L0 20.0001L5.255 18.6226C6.70876 19.4137 8.33741 19.8284 9.9925 19.8288H9.9975C15.4575 19.8288 19.905 15.3813 19.91 9.91631C19.9112 8.61387 19.6548 7.32405 19.1553 6.12116C18.6559 4.91827 17.9246 3.8261 17.0012 2.90756ZM9.9925 18.1513C8.51625 18.1518 7.06713 17.7546 5.7975 17.0013L5.4975 16.8213L2.38 17.6388L3.2125 14.5976L3.0175 14.2838C2.19226 12.9717 1.75581 11.4526 1.75875 9.90256C1.75875 5.37006 5.455 1.67256 9.9975 1.67256C11.0797 1.67062 12.1515 1.8829 13.1513 2.29718C14.151 2.71145 15.0589 3.31951 15.8225 4.08631C16.5888 4.85012 17.1963 5.75809 17.6099 6.75785C18.0235 7.75761 18.2351 8.82937 18.2325 9.91131C18.2275 14.4601 14.5312 18.1513 9.9925 18.1513ZM14.5113 11.9838C14.265 11.8601 13.0487 11.2613 12.82 11.1763C12.5925 11.0951 12.4262 11.0526 12.2637 11.3001C12.0975 11.5463 11.6225 12.1076 11.48 12.2688C11.3375 12.4351 11.19 12.4538 10.9425 12.3313C10.6962 12.2063 9.8975 11.9463 8.9525 11.1001C8.215 10.4438 7.72125 9.63131 7.57375 9.38506C7.43125 9.13756 7.56 9.00506 7.68375 8.88131C7.7925 8.77131 7.93 8.59131 8.05375 8.44881C8.17875 8.30631 8.22 8.20131 8.30125 8.03631C8.3825 7.86881 8.34375 7.72631 8.2825 7.60256C8.22 7.47881 7.72625 6.25756 7.5175 5.76506C7.3175 5.27881 7.11375 5.34631 6.96125 5.34006C6.81875 5.33131 6.6525 5.33131 6.48625 5.33131C6.3607 5.33443 6.23716 5.36347 6.12337 5.4166C6.00958 5.46973 5.90799 5.54581 5.825 5.64006C5.5975 5.88756 4.96125 6.48631 4.96125 7.70756C4.96125 8.92881 5.84875 10.1026 5.97375 10.2688C6.09625 10.4351 7.71625 12.9338 10.2025 14.0088C10.79 14.2651 11.2525 14.4163 11.6138 14.5313C12.2075 14.7213 12.7437 14.6926 13.1712 14.6313C13.6462 14.5588 14.635 14.0313 14.8438 13.4526C15.0488 12.8726 15.0488 12.3776 14.9863 12.2738C14.925 12.1688 14.7588 12.1076 14.5113 11.9838Z" fill="#20EDC8"/>
+            </svg>
+          </a>
+          <a href="whatsapp://send?phone=+5583998043633" class="wa-mobile" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.0012 2.90756C16.0843 1.98216 14.9924 1.24849 13.7891 0.749318C12.5858 0.250144 11.2952 -0.00455534 9.9925 6.16632e-05C4.53375 6.16632e-05 0.085 4.44756 0.08 9.90756C0.08 11.6563 0.5375 13.3576 1.40125 14.8638L0 20.0001L5.255 18.6226C6.70876 19.4137 8.33741 19.8284 9.9925 19.8288H9.9975C15.4575 19.8288 19.905 15.3813 19.91 9.91631C19.9112 8.61387 19.6548 7.32405 19.1553 6.12116C18.6559 4.91827 17.9246 3.8261 17.0012 2.90756ZM9.9925 18.1513C8.51625 18.1518 7.06713 17.7546 5.7975 17.0013L5.4975 16.8213L2.38 17.6388L3.2125 14.5976L3.0175 14.2838C2.19226 12.9717 1.75581 11.4526 1.75875 9.90256C1.75875 5.37006 5.455 1.67256 9.9975 1.67256C11.0797 1.67062 12.1515 1.8829 13.1513 2.29718C14.151 2.71145 15.0589 3.31951 15.8225 4.08631C16.5888 4.85012 17.1963 5.75809 17.6099 6.75785C18.0235 7.75761 18.2351 8.82937 18.2325 9.91131C18.2275 14.4601 14.5312 18.1513 9.9925 18.1513ZM14.5113 11.9838C14.265 11.8601 13.0487 11.2613 12.82 11.1763C12.5925 11.0951 12.4262 11.0526 12.2637 11.3001C12.0975 11.5463 11.6225 12.1076 11.48 12.2688C11.3375 12.4351 11.19 12.4538 10.9425 12.3313C10.6962 12.2063 9.8975 11.9463 8.9525 11.1001C8.215 10.4438 7.72125 9.63131 7.57375 9.38506C7.43125 9.13756 7.56 9.00506 7.68375 8.88131C7.7925 8.77131 7.93 8.59131 8.05375 8.44881C8.17875 8.30631 8.22 8.20131 8.30125 8.03631C8.3825 7.86881 8.34375 7.72631 8.2825 7.60256C8.22 7.47881 7.72625 6.25756 7.5175 5.76506C7.3175 5.27881 7.11375 5.34631 6.96125 5.34006C6.81875 5.33131 6.6525 5.33131 6.48625 5.33131C6.3607 5.33443 6.23716 5.36347 6.12337 5.4166C6.00958 5.46973 5.90799 5.54581 5.825 5.64006C5.5975 5.88756 4.96125 6.48631 4.96125 7.70756C4.96125 8.92881 5.84875 10.1026 5.97375 10.2688C6.09625 10.4351 7.71625 12.9338 10.2025 14.0088C10.79 14.2651 11.2525 14.4163 11.6138 14.5313C12.2075 14.7213 12.7437 14.6926 13.1712 14.6313C13.6462 14.5588 14.635 14.0313 14.8438 13.4526C15.0488 12.8726 15.0488 12.3776 14.9863 12.2738C14.925 12.1688 14.7588 12.1076 14.5113 11.9838Z" fill="#20EDC8"/>
+            </svg>
+          </a>
+          <a href="mailto:phellipelins.dev@gmail.com" target="_blank">
+            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 0.5C1.83696 0.5 1.20107 0.763392 0.732233 1.23223C0.263392 1.70107 0 2.33696 0 3L0 13.0125C0.00330441 13.6734 0.268155 14.3061 0.736638 14.7722C1.20512 15.2383 1.83912 15.5 2.5 15.5H9.375C9.54076 15.5 9.69973 15.4342 9.81694 15.3169C9.93415 15.1997 10 15.0408 10 14.875C10 14.7092 9.93415 14.5503 9.81694 14.4331C9.69973 14.3158 9.54076 14.25 9.375 14.25H2.5C2.22485 14.25 1.95737 14.1593 1.73905 13.9918C1.52073 13.8243 1.36376 13.5895 1.2925 13.3237L8.3425 8.985L10 9.97875L18.75 4.72875V8.625C18.75 8.79076 18.8158 8.94973 18.9331 9.06694C19.0503 9.18415 19.2092 9.25 19.375 9.25C19.5408 9.25 19.6997 9.18415 19.8169 9.06694C19.9342 8.94973 20 8.79076 20 8.625V3C20 2.33696 19.7366 1.70107 19.2678 1.23223C18.7989 0.763392 18.163 0.5 17.5 0.5H2.5ZM7.135 8.26L1.25 11.8812V4.72875L7.135 8.26ZM1.25 3.27125V3C1.25 2.66848 1.3817 2.35054 1.61612 2.11612C1.85054 1.8817 2.16848 1.75 2.5 1.75H17.5C17.8315 1.75 18.1495 1.8817 18.3839 2.11612C18.6183 2.35054 18.75 2.66848 18.75 3V3.27125L10 8.52125L1.25 3.27125Z" fill="#20EDC8"/>
+              <path d="M17.8087 15.8363C19.0712 15.8363 19.7925 14.765 19.7925 13.305V13.0425C19.7925 11.0375 18.3 9.25 15.65 9.25H15.6062C13.025 9.25 11.25 10.95 11.25 13.54V13.8075C11.25 16.525 13.0475 18 15.4475 18H15.5025C16.245 18 16.775 17.9075 17.0487 17.7812V16.8688C16.7425 17.0063 16.2075 17.0937 15.5737 17.0937H15.5187C13.8512 17.0937 12.305 16.1087 12.305 13.775V13.5788C12.305 11.5075 13.6275 10.1738 15.605 10.1738H15.655C17.5738 10.1738 18.76 11.4862 18.76 13.0812V13.2287C18.76 14.4475 18.355 14.9662 17.9613 14.9662C17.6713 14.9662 17.4487 14.7812 17.4487 14.4412V11.7038H16.3163V12.415H16.2787C16.1737 12.0425 15.8188 11.6275 15.0863 11.6275C14.1138 11.6275 13.5125 12.3213 13.5125 13.3775V14.0375C13.5125 15.1525 14.125 15.83 15.0875 15.83C15.6762 15.83 16.2075 15.5463 16.355 15.0263H16.4087C16.5562 15.5513 17.18 15.8363 17.8087 15.8363ZM14.7425 13.8512V13.5675C14.7425 12.885 15.0262 12.5788 15.4587 12.5788C15.83 12.5788 16.1738 12.8188 16.1738 13.4638V13.9225C16.1738 14.6387 15.8575 14.8525 15.4688 14.8525C15.0262 14.8525 14.7425 14.5838 14.7425 13.8525V13.8512Z" fill="#20EDC8"/>
+            </svg>
+          </a>
+          <a href="#" scroll-to="#hero" target="_blank">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.7071 0.292656C8.31657 -0.0978441 7.68341 -0.0978441 7.29288 0.292656L0.928892 6.65666C0.538392 7.04714 0.538392 7.6803 0.928892 8.07083C1.31949 8.46135 1.95259 8.46135 2.34309 8.07083L7.99999 2.41396L13.6568 8.07083C14.0474 8.46135 14.6805 8.46135 15.0711 8.07083C15.4616 7.6803 15.4616 7.04714 15.0711 6.65666L8.7071 0.292656ZM8.99999 16.9998L8.99999 0.999756H6.99999L6.99999 16.9998L8.99999 16.9998Z" fill="#20EDC8"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
     <!-- build:js scripts/vendor.js -->
-    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/node_modules/gsap/dist/ScrollTrigger.min.js"></script>
-    <script type="text/javascript" src="/node_modules/gsap/dist/ScrollToPlugin.min.js"></script>
-    <script type="text/javascript" src="/node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" integrity="sha512-A64Nik4Ql7/W/PJk2RNOmVyC/Chobn5TY08CiKEX50Sdw+33WTOpPJ/63bfWPl0hxiRv1trPs5prKO8CpA7VNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js" integrity="sha512-tQFq+nb/TSS648SDzWbSj0A67t4I1PFzR0U6Oi/yEYFyUbAIwg74SOCbr7t2X1Rn+iln7sYwfh8y+z7p0gddOw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/CustomEase.min.js" integrity="sha512-uz892ZkYODwTes5+bbFabdbjahCKx+/5Jv+R3Ov+EM+X3hyU4S9DRftydgG/CZsHD1IfV+0AurkeqJbo4vwyJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js" integrity="sha512-ScxMOYmRNoGRJS507RFagrPqoLcbpykfXvT8j65fEk+5KMHnWMs0UkOhPZOkMk58jzBx/tXAJiJV/zcT2JMJ1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
